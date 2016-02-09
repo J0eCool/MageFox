@@ -6,6 +6,7 @@ public class Bullet : JComponent {
 	[SerializeField] private float _speed = 30.0f;
 	[SerializeField] private float _range = 150.0f;
 	[SerializeField] private int _damage = 2;
+	[SerializeField] private bool _isEnemy = false;
 
 	private Vector3 _dir;
 	private float _distTraveled = 0.0f;
@@ -29,7 +30,7 @@ public class Bullet : JComponent {
 
 	void OnTriggerEnter(Collider other) {
 		Health health = other.GetComponent<Health>();
-		if (health) {
+		if (health && health.IsEnemy != _isEnemy) {
 			health.TakeDamage(_damage);
 			_didCollide = true;
 		}
