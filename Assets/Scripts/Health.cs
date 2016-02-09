@@ -19,10 +19,7 @@ public class Health : JComponent {
 		}
 	}
 
-	void OnTriggerEnter(Collider other) {
-		Bullet bullet = other.GetComponent<Bullet>();
-		if (bullet) {
-			Current -= bullet.Damage;
-		}
+	public void TakeDamage(int damage) {
+		Current -= damage;
 	}
 }

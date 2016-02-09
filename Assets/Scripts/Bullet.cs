@@ -7,8 +7,6 @@ public class Bullet : JComponent {
 	[SerializeField] private float _range = 150.0f;
 	[SerializeField] private int _damage = 2;
 
-	public int Damage { get { return _damage; } }
-
 	private Vector3 _dir;
 	private float _distTraveled = 0.0f;
 	private bool _didCollide = false;
@@ -30,6 +28,8 @@ public class Bullet : JComponent {
 	}
 
 	void OnTriggerEnter(Collider other) {
+		Health health = other.GetComponent<Health>();
+		health.TakeDamage(_damage);
 		_didCollide = true;
 	}
 }
