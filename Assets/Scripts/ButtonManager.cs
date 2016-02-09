@@ -39,10 +39,16 @@ public class ButtonManager : SingletonComponent<ButtonManager> {
 		}
 	}
 
+	private bool tryGet(AxisMap collection, string axisName) {
+		bool val;
+		collection.TryGetValue(axisName, out val);
+		return val;
+	}
+
 	public bool GetButton(string axisName) {
-		return _heldKeys[axisName];
+		return tryGet(_heldKeys, axisName);
 	}
 	public bool GetButtonDown(string axisName) {
-		return _pressedKeys[axisName];
+		return tryGet(_pressedKeys, axisName);
 	}
 }

@@ -33,9 +33,7 @@ public class ShipControl : JComponent {
 		pos += _vel * Time.fixedDeltaTime;
 		pos = VectorUtil.ClampXY(pos, _origin - _bounds/2, _origin + _bounds/2);
 		transform.position = pos;
-	}
 
-	void Update() {
 		bool didShoot = ButtonManager.Instance.GetButtonDown(ButtonManager.FireAxis);
 		if (didShoot) {
 			GameObject bulletObj = Instantiate(_bulletPrefab);
