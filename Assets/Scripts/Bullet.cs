@@ -29,7 +29,9 @@ public class Bullet : JComponent {
 
 	void OnTriggerEnter(Collider other) {
 		Health health = other.GetComponent<Health>();
-		health.TakeDamage(_damage);
-		_didCollide = true;
+		if (health) {
+			health.TakeDamage(_damage);
+			_didCollide = true;
+		}
 	}
 }

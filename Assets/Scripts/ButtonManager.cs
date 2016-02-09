@@ -5,12 +5,12 @@ using System.Collections.Generic;
 using AxisMap = System.Collections.Generic.Dictionary<string, bool>;
 
 public class ButtonManager : SingletonComponent<ButtonManager> {
-	public readonly static string FireAxis = "Fire1";
+	public readonly static string FireAxis = "Shoot";
 	public readonly static string[] AxisNames = {
 		FireAxis,
-		"Fire2",
-		"Fire3",
-		"Jump",
+		"Spell1",
+		"Spell2",
+		"Spell3",
 		"Horizontal",
 		"Vertical",
 	};
