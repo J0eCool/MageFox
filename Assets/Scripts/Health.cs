@@ -68,8 +68,10 @@ public class Health : JComponent {
 	}
 
 	public void TakeDamage(int damage) {
-		Current -= damage;
-		_invincibleUntil = Time.timeSinceLevelLoad + _invinciblityDuration;
-		beginFlashing();
+		if (!isInvincible()) {
+			Current -= damage;
+			_invincibleUntil = Time.timeSinceLevelLoad + _invinciblityDuration;
+			beginFlashing();
+		}
 	}
 }
