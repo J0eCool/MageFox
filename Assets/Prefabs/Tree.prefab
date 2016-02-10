@@ -10,7 +10,7 @@ GameObject:
   - 4: {fileID: 424798}
   - 33: {fileID: 3343830}
   - 23: {fileID: 2313066}
-  - 95: {fileID: 9597730}
+  - 136: {fileID: 13660664}
   m_Layer: 0
   m_Name: Tree
   m_TagString: Untagged
@@ -24,9 +24,9 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128034}
-  m_LocalRotation: {x: -0.000000059604645, y: 0, z: -0, w: 1}
-  m_LocalPosition: {x: 5.581848, y: -3.372809, z: 6.6296616}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalRotation: {x: -0.000000059604645, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -5.1, y: -4.49, z: 36.8}
+  m_LocalScale: {x: 4, y: 5, z: 3}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -63,23 +63,19 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128034}
   m_Mesh: {fileID: 4300000, guid: 76b21affa2929d347a60c9650244214c, type: 3}
---- !u!95 &9597730
-Animator:
-  serializedVersion: 3
+--- !u!136 &13660664
+CapsuleCollider:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 128034}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_Avatar: {fileID: 9000000, guid: 76b21affa2929d347a60c9650244214c, type: 3}
-  m_Controller: {fileID: 0}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
+  m_Radius: 0.76
+  m_Height: 2.498742
+  m_Direction: 1
+  m_Center: {x: 0, y: 0.122180045, z: 0}
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
