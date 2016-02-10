@@ -28,13 +28,12 @@ public class Health : JComponent {
 		_baseMaterial = _renderer.material;
 	}
 
-	void FixedUpdate() {
+	void Update() {
 		if (Current <= 0) {
 			Destroy(gameObject);
+			return;
 		}
-	}
 
-	void Update() {
 		if (_damageTimer > 0.0f) {
 			_damageTimer -= Time.deltaTime;
 			_flashTimer -= Time.deltaTime;

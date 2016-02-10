@@ -21,24 +21,28 @@ public class ShipControl : JComponent {
 		Gizmos.DrawWireCube(_origin, new Vector3(_bounds.x, _bounds.y, 1.0f));
 	}
 
-	void FixedUpdate() {
+	void Update() {
 		Vector3 pos = transform.position;
 		float dx = Input.GetAxis("Horizontal");
 		float dy = Input.GetAxis("Vertical");
 		Vector3 delta = new Vector3(dx, dy) * _moveSpeed;
 		transform.LookAt(pos + new Vector3(_vel.x, _vel.y, _lookAheadDist));
-		float t = Time.fixedDeltaTime / _moveAccelTime;
+		float t = Time.deltaTime / _moveAccelTime;
 		float s = 1.0f - t;
 		_vel = _vel * s + t * delta;
-		pos += _vel * Time.fixedDeltaTime;
-		pos = VectorUtil.ClampXY(pos, _origin - _bounds/2, _origin + _bounds/2);
-		transform.position = pos;
 
-		bool didShoot = ButtonManager.Instance.GetButtonDown(ButtonManager.FireAxis);
+		bool didShoot = ButtonManager.Instance.GetButtonDown(ButtonManager.FireButton);
 		if (didShoot) {
 			GameObject bulletObj = Instantiate(_bulletPrefab);
 			Bullet bullet = bulletObj.GetComponent<Bullet>();
 			bullet.Init(_shotPoint.transform.position, transform.forward);
 		}
+	}
+
+	void FixedUpdate() {
+		Vector3 pos = transform.position;
+		pos += _vel * Time.fixedDeltaTime;
+		pos = VectorUtil.ClampXY(pos, _origin - _bounds/2, _origin + _bounds/2);
+		transform.position = pos;
 	}
 }

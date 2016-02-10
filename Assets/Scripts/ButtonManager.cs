@@ -5,18 +5,21 @@ using System.Collections.Generic;
 using AxisMap = System.Collections.Generic.Dictionary<string, bool>;
 
 public class ButtonManager : SingletonComponent<ButtonManager> {
-	public readonly static string FireAxis = "Shoot";
+	public readonly static string FireButton = "Shoot";
+	public readonly static string PauseButton = "Pause";
 	public readonly static string[] AxisNames = {
-		FireAxis,
+		FireButton,
 		"Spell1",
 		"Spell2",
 		"Spell3",
+		PauseButton,
 		"Horizontal",
 		"Vertical",
 	};
 
 	public readonly static string[] ButtonNames = {
-		FireAxis,
+		FireButton,
+		PauseButton,
 	};
 
 	private AxisMap _heldKeys = new AxisMap();
@@ -29,7 +32,7 @@ public class ButtonManager : SingletonComponent<ButtonManager> {
 		}
 	}
 
-	void FixedUpdate() {
+	void Update() {
 		foreach (string axis in ButtonNames) {
 			bool isHeld = Input.GetButton(axis);
 			bool wasHeld = _heldKeys[axis];
