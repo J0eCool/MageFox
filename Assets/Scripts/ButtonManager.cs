@@ -20,6 +20,7 @@ public class ButtonManager : SingletonComponent<ButtonManager> {
 	public readonly static string[] ButtonNames = {
 		FireButton,
 		PauseButton,
+		"Spell3",
 	};
 
 	private AxisMap _heldKeys = new AxisMap();

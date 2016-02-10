@@ -47,9 +47,11 @@ public class PauseManager : SingletonComponent<PauseManager> {
 	}
 
 	public void Pause() {
-		setPaused(true);
+		// Calling on Instance for use in UI
+		Instance.setPaused(true);
 	}
 	public void Unpause() {
-		setPaused(false);
+		// Calling on Instance for use in UI
+		Instance.setPaused(false);
 	}
 }
