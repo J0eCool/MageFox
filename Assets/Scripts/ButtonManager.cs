@@ -26,13 +26,14 @@ public class ButtonManager : SingletonComponent<ButtonManager> {
 	private AxisMap _pressedKeys = new AxisMap();
 	private AxisMap _releasedKeys = new AxisMap();
 
-	protected override void onStart() {
+	protected override void OnStart() {
 		foreach (string axis in AxisNames) {
 			_heldKeys[axis] = false;
 		}
 	}
 
-	void Update() {
+	protected override bool CanBePaused { get { return false; } }
+	protected override void OnUpdate() {
 		foreach (string axis in ButtonNames) {
 			bool isHeld = Input.GetButton(axis);
 			bool wasHeld = _heldKeys[axis];

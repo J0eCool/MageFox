@@ -9,11 +9,11 @@ public class HealthBar : JComponent {
 
 	private float _baseWidth;
 
-	protected override void onStart() {
+	protected override void OnStart() {
 		_baseWidth = _barImage.localScale.x;
 	}
 
-	void Update() {
+	protected override void OnUpdate() {
 		float pct = _health ? _health.Fraction : 0.0f;
 		pct = Mathf.Clamp01(pct);
 		float width = _baseWidth * pct;

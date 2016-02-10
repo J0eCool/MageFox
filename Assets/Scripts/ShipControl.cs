@@ -13,7 +13,7 @@ public class ShipControl : JComponent {
 	private Vector3 _vel = Vector3.zero;
 	private Vector2 _origin = Vector3.zero;
 
-	protected override void onStart() {
+	protected override void OnStart() {
 		_origin = transform.position;
 	}
 
@@ -21,7 +21,7 @@ public class ShipControl : JComponent {
 		Gizmos.DrawWireCube(_origin, new Vector3(_bounds.x, _bounds.y, 1.0f));
 	}
 
-	void Update() {
+	protected override void OnUpdate() {
 		Vector3 pos = transform.position;
 		float dx = Input.GetAxis("Horizontal");
 		float dy = Input.GetAxis("Vertical");
@@ -39,7 +39,7 @@ public class ShipControl : JComponent {
 		}
 	}
 
-	void FixedUpdate() {
+	protected override void OnFixedUpdate() {
 		Vector3 pos = transform.position;
 		pos += _vel * Time.fixedDeltaTime;
 		pos = VectorUtil.ClampXY(pos, _origin - _bounds/2, _origin + _bounds/2);

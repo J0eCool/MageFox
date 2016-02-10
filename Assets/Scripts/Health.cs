@@ -23,14 +23,14 @@ public class Health : JComponent {
 
 	[StartComponent] private Renderer _renderer;
 
-	protected override void onStart() {
+	protected override void OnStart() {
 		Current = _maxHealth;
 		_baseMaterial = _renderer.material;
 	}
 
-	void Update() {
+	protected override void OnUpdate() {
 		if (Current <= 0) {
-			Destroy(gameObject);
+			Destroy();
 			return;
 		}
 

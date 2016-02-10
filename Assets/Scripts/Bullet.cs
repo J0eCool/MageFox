@@ -18,13 +18,13 @@ public class Bullet : JComponent {
 		transform.LookAt(pos + dir);
 	}
 
-	void FixedUpdate() {
+	protected override void OnFixedUpdate() {
 		float dist = _speed * Time.fixedDeltaTime;
 		transform.position += _dir * dist;
 		_distTraveled += dist;
 
 		if (_distTraveled > _range || _didCollide) {
-			Destroy(gameObject);
+			Destroy();
 		}
 	}
 

@@ -269,6 +269,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 216646605}
   - 114: {fileID: 216646604}
+  - 114: {fileID: 216646606}
   m_Layer: 0
   m_Name: Managers
   m_TagString: Untagged
@@ -299,6 +300,19 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
+--- !u!114 &216646606
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 216646603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1cc3e8364684b434092d509b91306b6b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _pauseMenuPrefab: {fileID: 107090, guid: a76808c353bd3854cafaea0cfcd1433b, type: 2}
+  _canvas: {fileID: 63534025}
 --- !u!1 &270750143
 GameObject:
   m_ObjectHideFlags: 0

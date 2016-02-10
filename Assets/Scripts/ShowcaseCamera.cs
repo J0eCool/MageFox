@@ -10,7 +10,7 @@ public class ShowcaseCamera : JComponent {
 	private float _dist;
 	private float _yOffset;
 
-	protected override void onStart() {
+	protected override void OnStart() {
 		Vector3 pos = transform.position;
 		Vector3 targetPos = _target.transform.position;
 		Vector3 delta = pos - targetPos;
@@ -19,7 +19,7 @@ public class ShowcaseCamera : JComponent {
 		_angle = Mathf.Atan2(delta.z, delta.x);
 	}
 
-	void Update() {
+	protected override void OnUpdate() {
 		_angle += Time.deltaTime * _rotateSpeed * Mathf.Deg2Rad;
 		Vector3 delta = new Vector3(_dist * Mathf.Cos(_angle), _yOffset, _dist * Mathf.Sin(_angle));
 		transform.position = _target.transform.position + delta;

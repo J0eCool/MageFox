@@ -7,7 +7,7 @@ public class InputDisplayText : JComponent {
 	[StartComponent]
 	private Text _text;
 
-	void Update() {
+	protected override void OnUpdate() {
 		string displayStr = "";
 		foreach (string axis in ButtonManager.AxisNames) {
 			float input = Input.GetAxis(axis);
