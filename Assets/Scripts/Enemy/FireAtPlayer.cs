@@ -7,6 +7,8 @@ public class FireAtPlayer : JComponent {
 	[SerializeField] private float _burstInterval = 1.5f;
 	[SerializeField] private int _burstShots = 3;
 	[SerializeField] private float _burstDuration = 0.5f;
+	[SerializeField] private float _aimLookahead = 5.0f;
+	[SerializeField] private float _aimJitter = 1.0f;
 
 	private float _shotTimer = 0.0f;
 	private float _burstTimer = float.PositiveInfinity;
@@ -42,7 +44,8 @@ public class FireAtPlayer : JComponent {
 
 		GameObject bulletObj = Instantiate(_bulletPrefab);
 		Bullet bullet = bulletObj.GetComponent<Bullet>();
-		Vector3 delta = PlayerManager.Instance.PlayerPosition - transform.position;
+		Vector3 target = PlayerManager.Instance.PlayerPosition + _aimLookahead * Vector3.forward + VectorUtil.RandVec3(_aimJitter);
+		Vector3 delta = target - transform.position;
 		bullet.Init(transform.position, delta);
 	}
 }

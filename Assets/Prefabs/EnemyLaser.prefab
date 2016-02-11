@@ -103,8 +103,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9446a34cb5fcf8d4a8f8426290ece39b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _speed: 60
-  _range: 150
+  _speed: 40
+  _range: 100
   _damage: 2
   _isEnemy: 1
 --- !u!1001 &100100000
@@ -116,7 +116,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 0}
       propertyPath: _speed
-      value: 60
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: m_IsTrigger
@@ -138,6 +138,10 @@ Prefab:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 6cfe2afc938d5f0459e85e22ab9fd992, type: 2}
+    - target: {fileID: 0}
+      propertyPath: _range
+      value: 100
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}
   m_RootGameObject: {fileID: 151812}
