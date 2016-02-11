@@ -14,7 +14,7 @@ public class Bullet : JComponent {
 
 	public void Init(Vector3 pos, Vector3 dir) {
 		transform.position = pos;
-		_dir = dir;
+		_dir = dir.normalized;
 		transform.LookAt(pos + dir);
 	}
 
