@@ -28,10 +28,15 @@ public class ShootControl : JComponent {
 
 	protected override void OnUpdate() {
 		foreach (var kv in _guns) {
+			if (!kv.Value) {
+				continue;
+			}
 			bool didPress = ButtonManager.Instance.GetButtonDown(kv.Key);
-			if (didPress && kv.Value) {
+			bool isHeld = ButtonManager.Instance.GetButton(kv.Key);
+			if (didPress) {
 				kv.Value.DidPress(transform.forward);
 			}
+			kv.Value.OnUpdate(isHeld, transform.forward);
 		}
 	}
 }

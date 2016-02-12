@@ -4,20 +4,23 @@ using System.Collections;
 using System.Collections.Generic;
 
 public class ShotData : ScriptableObject {
-	[SerializeField] private GameObject _prefab;
+	[SerializeField] private GameObject _prefab = null;
 	[SerializeField] private int _manaCost = 0;
 	[SerializeField] private int _numToFire = 1;
 	[SerializeField] private float _randomSpread = 0.0f;
 	[SerializeField] private float _cooldown = 0.0f;
+	[SerializeField] private float _autoFireRate = 0.0f;
 
 	private GameObject _shotPoint;
 	private Mana _mana;
 	private float _cooledDownTime;
+	private float _autoFireTime;
 
 	public void Init(GameObject shotPoint, Mana mana) {
 		_shotPoint = shotPoint;
 		_mana = mana;
 		_cooledDownTime = 0.0f;
+		_autoFireTime = 0.0f;
 	}
 
 	public void DidPress(Vector3 dir) {
@@ -26,6 +29,13 @@ public class ShotData : ScriptableObject {
 		}
 
 		Shoot(dir);
+	}
+
+	public void OnUpdate(bool isHeld, Vector3 dir) {
+		bool canAutoFire = _autoFireRate > 0.0f && Time.time > _autoFireTime;
+		if (canAutoFire && isHeld && canShoot()) {
+			Shoot(dir);
+		}
 	}
 
 	private bool canShoot() {
@@ -45,6 +55,9 @@ public class ShotData : ScriptableObject {
 
 		_mana.Spend(_manaCost);
 		_cooledDownTime = Time.time + _cooldown;
+		if (_autoFireRate > 0.0f) {
+			_autoFireTime = Time.time + (1.0f / _autoFireRate);
+		}
 	}
 
 	[MenuItem("Assets/Create/ShotData")]
