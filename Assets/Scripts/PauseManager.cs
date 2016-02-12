@@ -42,7 +42,7 @@ public class PauseManager : SingletonComponent<PauseManager> {
 			_pauseMenu = Instantiate(_pauseMenuPrefab);
 			_pauseMenu.transform.SetParent(_canvas.transform, false);
 		} else {
-			Destroy(_pauseMenu);
+			Remove(_pauseMenu);
 		}
 	}
 

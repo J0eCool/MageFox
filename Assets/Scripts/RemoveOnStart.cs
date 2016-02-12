@@ -4,6 +4,6 @@ using System.Collections.Generic;
 
 public class RemoveOnStart : JComponent {
 	protected override void OnStart() {
-		Destroy();
+		Remove();
 	}
 }

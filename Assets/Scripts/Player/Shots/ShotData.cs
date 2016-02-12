@@ -16,6 +16,8 @@ public class ShotData : ScriptableObject {
 	private float _cooledDownTime;
 	private float _autoFireTime;
 
+	protected GameObject _lastShotObject = null;
+
 	public void Init(GameObject shotPoint, Mana mana) {
 		_shotPoint = shotPoint;
 		_mana = mana;
@@ -23,7 +25,7 @@ public class ShotData : ScriptableObject {
 		_autoFireTime = 0.0f;
 	}
 
-	public void DidPress(Vector3 dir) {
+	public virtual void DidPress(Vector3 dir) {
 		if (!canShoot()) {
 			return;
 		}
@@ -51,6 +53,8 @@ public class ShotData : ScriptableObject {
 			float spreadAmt = Vector3.Cross(randomAxis, dir).magnitude * _randomSpread;
 			Vector3 spreadDir = Quaternion.AngleAxis(spreadAmt, randomAxis) * dir;
 			bullet.Init(pos, spreadDir);
+
+			_lastShotObject = bulletObj;
 		}
 
 		_mana.Spend(_manaCost);
@@ -60,7 +64,7 @@ public class ShotData : ScriptableObject {
 		}
 	}
 
-	[MenuItem("Assets/Create/ShotData")]
+	[MenuItem("Assets/Create/Shots/ShotData")]
 	public static void CreateShotData() {
 		ScriptableObjectUtil.CreateAsset<ShotData>();
 	}

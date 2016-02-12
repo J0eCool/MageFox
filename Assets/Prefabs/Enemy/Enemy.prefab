@@ -364,7 +364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b48ec20dd98bd4fb6926d1ca16f75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 10
+  _max: 6
   _isEnemy: 1
   _damageFlashMaterial: {fileID: 2100000, guid: 400ada108ae88504782101b6478b4376,
     type: 2}
@@ -508,6 +508,10 @@ Prefab:
     - target: {fileID: 0}
       propertyPath: _timeToComplete
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 0}
+      propertyPath: _max
+      value: 6
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 0}

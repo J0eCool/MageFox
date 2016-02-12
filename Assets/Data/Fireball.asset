@@ -8,10 +8,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0463a0f626b5b7c44a7b902e067aefc4, type: 3}
-  m_Name: Big Laser
+  m_Script: {fileID: 11500000, guid: fb4a7ca04842ceb4c8141902e7ae4c24, type: 3}
+  m_Name: Fireball
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 151812, guid: 57529eef02a6a0b4a9cfadf0904a3cdb, type: 2}
-  _manaCost: 9
+  _prefab: {fileID: 151812, guid: 6fb861f69537c76469804dee558a119a, type: 2}
+  _manaCost: 30
   _numToFire: 1
   _randomSpread: 0
+  _cooldown: 0
+  _autoFireRate: 0

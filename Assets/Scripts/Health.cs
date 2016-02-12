@@ -38,7 +38,7 @@ public class Health : LimitedQuantity {
 
 	protected override void OnUpdate() {
 		if (Current <= 0) {
-			Destroy();
+			Remove();
 			return;
 		}
 
@@ -75,7 +75,7 @@ public class Health : LimitedQuantity {
 	}
 
 	public void TakeDamage(int damage) {
-		if (!isInvincible()) {
+		if (!isInvincible() && damage > 0) {
 			Current -= damage;
 			_invincibleUntil = Time.timeSinceLevelLoad + _invinciblityDuration;
 			beginFlashing();

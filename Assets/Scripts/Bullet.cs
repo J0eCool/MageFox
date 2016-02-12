@@ -24,7 +24,7 @@ public class Bullet : JComponent {
 		_distTraveled += dist;
 
 		if (_distTraveled > _range || _didCollide) {
-			Destroy();
+			Remove();
 		}
 	}
 

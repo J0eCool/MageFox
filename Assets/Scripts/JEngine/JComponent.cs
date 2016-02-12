@@ -5,19 +5,19 @@ using System.Reflection;
 public class JComponent : MonoBehaviour {
 	private PauseManager _pauseManager;
 
-	protected virtual void OnDestroy() { }
-	protected void Destroy() {
+	protected virtual void OnRemove() { }
+	protected void Remove() {
 		var components = GetComponents<JComponent>();
 		foreach (var component in components) {
-			component.OnDestroy();
+			component.OnRemove();
 		}
 
 		GameObject.Destroy(gameObject);
 	}
-	protected void Destroy(GameObject obj) {
+	public static void Remove(GameObject obj) {
 		JComponent component = obj.GetComponent<JComponent>();
 		if (component) {
-			component.Destroy();
+			component.Remove();
 		} else {
 			GameObject.Destroy(obj);
 		}
