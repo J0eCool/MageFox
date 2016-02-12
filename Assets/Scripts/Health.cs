@@ -2,17 +2,25 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Health : JComponent {
-	[SerializeField] private int _maxHealth = 10;
+public class LimitedQuantity : JComponent {
+	[SerializeField] private int _max = 10;
+
+	public int Max { get { return _max; } }
+	public int Current { get; protected set; }
+	public float Fraction { get { return (float)Current / _max; } }
+
+	protected override void OnStart() {
+		Current = _max;
+	}
+}
+
+public class Health : LimitedQuantity {
 	[SerializeField] private bool _isEnemy = true;
 	[SerializeField] private Material _damageFlashMaterial;
 	[SerializeField] private float _damageFlashDuration = 0.25f;
 	[SerializeField] private float _damageFlashInterval = 0.05f;
 	[SerializeField] private float _invinciblityDuration = 0.1f;
 
-	public int Max { get { return _maxHealth; } }
-	public int Current { get; private set; }
-	public float Fraction { get { return (float)Current / _maxHealth; } }
 	public bool IsEnemy { get { return _isEnemy; } }
 
 	private float _damageTimer = 0.0f;
@@ -24,7 +32,7 @@ public class Health : JComponent {
 	[StartComponent] private Renderer _renderer;
 
 	protected override void OnStart() {
-		Current = _maxHealth;
+		base.OnStart();
 		_baseMaterial = _renderer.material;
 	}
 
