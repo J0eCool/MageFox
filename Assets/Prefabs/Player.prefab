@@ -78,6 +78,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 454032}
   - 114: {fileID: 11400284}
+  - 114: {fileID: 11497108}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -93,7 +94,7 @@ Transform:
   m_GameObject: {fileID: 137156}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 20}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 454032}
   m_RootOrder: 1
@@ -105,7 +106,7 @@ Transform:
   m_GameObject: {fileID: 121948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 14}
-  m_LocalScale: {x: 6, y: 6, z: 1}
+  m_LocalScale: {x: 4, y: 4, z: 1}
   m_Children: []
   m_Father: {fileID: 454032}
   m_RootOrder: 2
@@ -224,8 +225,6 @@ MonoBehaviour:
   _moveAccelTime: 0.225
   _bounds: {x: 17, y: 10}
   _lookAheadDist: 40
-  _bulletPrefab: {fileID: 151812, guid: 602af20537477b840b6a515df0c338d4, type: 2}
-  _shotPoint: {fileID: 115120}
   _drawGizmos: 0
 --- !u!114 &11409898
 MonoBehaviour:
@@ -264,6 +263,19 @@ MonoBehaviour:
   _yBob: 0.15
   _bobSpeed: 1
   _drawGizmos: 0
+--- !u!114 &11497108
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 38aa49665fc203141941ecaab206c46c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _bulletPrefab: {fileID: 151812, guid: 602af20537477b840b6a515df0c338d4, type: 2}
+  _shotPoint: {fileID: 115120}
 --- !u!136 &13602462
 CapsuleCollider:
   m_ObjectHideFlags: 1

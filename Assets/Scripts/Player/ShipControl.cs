@@ -7,11 +7,7 @@ public class ShipControl : JComponent {
 	[SerializeField] private float _moveAccelTime = 0.5f;
 	[SerializeField] private Vector2 _bounds = Vector2.one;
 	[SerializeField] private float _lookAheadDist = 0.5f;
-	[SerializeField] private GameObject _bulletPrefab = null;
-	[SerializeField] private GameObject _shotPoint = null;
 	[SerializeField] private bool _drawGizmos = true;
-
-	[StartComponent] private FlightBob _bob;
 
 	private Vector3 _vel = Vector3.zero;
 	private Vector2 _origin = Vector3.zero;
@@ -40,13 +36,6 @@ public class ShipControl : JComponent {
 		float t = Time.deltaTime / _moveAccelTime;
 		float s = 1.0f - t;
 		_vel = _vel * s + t * delta;
-
-		bool didShoot = ButtonManager.Instance.GetButtonDown(ButtonManager.FireButton);
-		if (didShoot) {
-			GameObject bulletObj = Instantiate(_bulletPrefab);
-			Bullet bullet = bulletObj.GetComponent<Bullet>();
-			bullet.Init(_shotPoint.transform.position, transform.forward);
-		}
 	}
 
 	protected override void OnFixedUpdate() {

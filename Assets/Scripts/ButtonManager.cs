@@ -6,12 +6,15 @@ using AxisMap = System.Collections.Generic.Dictionary<string, bool>;
 
 public class ButtonManager : SingletonComponent<ButtonManager> {
 	public readonly static string FireButton = "Shoot";
+	public readonly static string SpellButton1 = "Spell1";
+	public readonly static string SpellButton2 = "Spell2";
+	public readonly static string SpellButton3 = "Spell3";
 	public readonly static string PauseButton = "Pause";
 	public readonly static string[] AxisNames = {
 		FireButton,
-		"Spell1",
-		"Spell2",
-		"Spell3",
+		SpellButton1,
+		SpellButton2,
+		SpellButton3,
 		PauseButton,
 		"Horizontal",
 		"Vertical",
@@ -20,7 +23,9 @@ public class ButtonManager : SingletonComponent<ButtonManager> {
 	public readonly static string[] ButtonNames = {
 		FireButton,
 		PauseButton,
-		"Spell3",
+		SpellButton1,
+		SpellButton2,
+		SpellButton3,
 	};
 
 	private AxisMap _heldKeys = new AxisMap();
