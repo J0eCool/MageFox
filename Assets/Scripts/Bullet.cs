@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-public class Bullet : JComponent {
+public class Bullet : JComponent, IShootable {
 	[SerializeField] private float _speed = 30.0f;
 	[SerializeField] private float _range = 150.0f;
 	[SerializeField] private int _damage = 2;

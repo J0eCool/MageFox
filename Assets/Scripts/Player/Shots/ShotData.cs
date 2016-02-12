@@ -48,7 +48,7 @@ public class ShotData : ScriptableObject {
 		Vector3 pos = _shotPoint.transform.position;
 		for (int i = 0; i < _numToFire; ++i) {
 			GameObject bulletObj = GameObject.Instantiate(_prefab);
-			Bullet bullet = bulletObj.GetComponent<Bullet>();
+			IShootable bullet = bulletObj.GetComponent<IShootable>();
 			Vector3 randomAxis = VectorUtil.RandUnitVec3();
 			float spreadAmt = Vector3.Cross(randomAxis, dir).magnitude * _randomSpread;
 			Vector3 spreadDir = Quaternion.AngleAxis(spreadAmt, randomAxis) * dir;
@@ -68,4 +68,8 @@ public class ShotData : ScriptableObject {
 	public static void CreateShotData() {
 		ScriptableObjectUtil.CreateAsset<ShotData>();
 	}
+}
+
+public interface IShootable {
+	void Init(Vector3 pos, Vector3 dir);
 }

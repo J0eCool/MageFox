@@ -82,7 +82,7 @@ GameObject:
   - 114: {fileID: 11473166}
   m_Layer: 8
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -290,7 +290,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _fireData: {fileID: 11400000, guid: ea1291486c41b954daa45778963ad929, type: 2}
   _spellData1: {fileID: 11400000, guid: 3f237b693c6858946b18f3a19bef565d, type: 2}
-  _spellData2: {fileID: 0}
+  _spellData2: {fileID: 11400000, guid: 33eff5e64d8f8064fb0ad323c36e8702, type: 2}
   _spellData3: {fileID: 11400000, guid: 92f7cf638b27fc54c868dea03ec0bf79, type: 2}
   _shotPoint: {fileID: 115120}
 --- !u!136 &13602462
