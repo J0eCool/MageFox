@@ -9,11 +9,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0463a0f626b5b7c44a7b902e067aefc4, type: 3}
-  m_Name: Laser
+  m_Name: Lightning
   m_EditorClassIdentifier: 
-  _prefab: {fileID: 151812, guid: 602af20537477b840b6a515df0c338d4, type: 2}
-  _manaCost: 0
+  _prefab: {fileID: 156902, guid: 9b9fc9564a7cf1d4ba158a6f48a11c35, type: 2}
+  _manaCost: 20
   _numToFire: 1
   _randomSpread: 0
-  _cooldown: 0
-  _autoFireRate: 3
+  _cooldown: 1
+  _autoFireRate: 0

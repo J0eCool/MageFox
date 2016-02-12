@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -53,5 +54,9 @@ public class PauseManager : SingletonComponent<PauseManager> {
 	public void Unpause() {
 		// Calling on Instance for use in UI
 		Instance.setPaused(false);
+	}
+	public void Restart() {
+		Instance.setPaused(false);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
 	}
 }
