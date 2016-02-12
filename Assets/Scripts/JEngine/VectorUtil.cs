@@ -9,12 +9,16 @@ public static class VectorUtil {
         return new Vector2(a.x * b.x, a.y * b.y);
     }
 
-	public static Vector3 RandVec3(float maxRadius) {
+	public static Vector3 RandUnitVec3() {
 		float theta = Random.Range(-Mathf.PI, Mathf.PI);
 		float phi = Random.Range(-Mathf.PI, Mathf.PI);
-		float r = Random.Range(0.0f, maxRadius);
 		float xz = Mathf.Cos(phi);
-		return new Vector3(xz * Mathf.Cos(theta), Mathf.Sin(phi), xz * Mathf.Sin(theta)) * r;
+		return new Vector3(xz * Mathf.Cos(theta), Mathf.Sin(phi), xz * Mathf.Sin(theta));
+	}
+
+	public static Vector3 RandVec3(float maxRadius) {
+		float r = Random.Range(0.0f, maxRadius);
+		return RandUnitVec3() * r;
 	}
 
 	public static Vector3 Clamp(Vector3 vec, Vector3 lo, Vector3 hi) {

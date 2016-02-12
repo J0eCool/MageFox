@@ -24,7 +24,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 436096}
   - 212: {fileID: 21269714}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: Target - Intermediate
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 409064}
   - 212: {fileID: 21232458}
-  m_Layer: 8
+  m_Layer: 5
   m_Name: Target
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -79,6 +79,7 @@ GameObject:
   - 4: {fileID: 454032}
   - 114: {fileID: 11400284}
   - 114: {fileID: 11497108}
+  - 114: {fileID: 11473166}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -237,7 +238,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 80b48ec20dd98bd4fb6926d1ca16f75e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _maxHealth: 20
+  _max: 20
   _isEnemy: 0
   _damageFlashMaterial: {fileID: 2100000, guid: 400ada108ae88504782101b6478b4376,
     type: 2}
@@ -263,6 +264,19 @@ MonoBehaviour:
   _yBob: 0.15
   _bobSpeed: 1
   _drawGizmos: 0
+--- !u!114 &11473166
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 160200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18dde3c3618685f4aaa14e953375bb31, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _max: 100
+  _regen: 10
 --- !u!114 &11497108
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -274,7 +288,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 38aa49665fc203141941ecaab206c46c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _bulletPrefab: {fileID: 151812, guid: 602af20537477b840b6a515df0c338d4, type: 2}
+  _fireData: {fileID: 11400000, guid: ea1291486c41b954daa45778963ad929, type: 2}
+  _spellData1: {fileID: 11400000, guid: b4dd337b39d7cb0498abf1ac2072b690, type: 2}
+  _spellData2: {fileID: 0}
+  _spellData3: {fileID: 11400000, guid: 3f237b693c6858946b18f3a19bef565d, type: 2}
   _shotPoint: {fileID: 115120}
 --- !u!136 &13602462
 CapsuleCollider:

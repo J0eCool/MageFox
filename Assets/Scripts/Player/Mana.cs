@@ -14,8 +14,12 @@ public class Mana : LimitedQuantity {
 		_partial -= whole;
 	}
 
+	public bool CanSpend(int amount) {
+		return amount <= Current;
+	}
+
 	public bool Spend(int amount) {
-		if (amount > Current) {
+		if (!CanSpend(amount)) {
 			return false;
 		}
 
