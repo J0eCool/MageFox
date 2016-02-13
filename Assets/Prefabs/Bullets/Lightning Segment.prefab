@@ -10,9 +10,8 @@ GameObject:
   - 4: {fileID: 436380}
   - 33: {fileID: 3349624}
   - 23: {fileID: 2318478}
-  - 114: {fileID: 11461920}
   m_Layer: 10
-  m_Name: Lightning
+  m_Name: Lightning Segment
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -63,23 +62,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 156902}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &11461920
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 156902}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9eee638a9b3a51c4c9930a1c45cfbb01, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damage: 5
-  _despawnDelay: 0.7
-  _defaultDist: 5
-  _segmentPrefab: {fileID: 0}
-  _segmentDeflectMaxRatio: 0.3
-  _segmentMaxLength: 2
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1

@@ -13,8 +13,25 @@ public class LightningBullet : JComponent, IShootable {
 	private float _timer = 0.0f;
 
 	public void Init(Vector3 pos, Vector3 dir) {
-		Health target = null;
 		Vector3 targetPos = pos + _defaultDist * dir;
+		Health target = findTarget(pos, dir);
+		if (target) {
+			target.TakeDamage(_damage);
+			targetPos = target.transform.position;
+		}
+
+		List<Vector3> path = pathBetween(pos, targetPos);
+		for (int i = 0; i < path.Count; ++i) {
+			Vector3 cur = path[i];
+			Vector3 next = (i + 1 < path.Count) ? path[i + 1] : targetPos;
+			GameObject segment = Instantiate(_segmentPrefab);
+			scaleObjectBetween(segment.transform, cur, next);
+			segment.transform.SetParent(transform, true);
+		}
+	}
+
+	private Health findTarget(Vector3 pos, Vector3 dir) {
+		Health target = null;
 		GameObject[] enemies = GameObject.FindGameObjectsWithTag("Enemy");
 		float minDistSquared = float.PositiveInfinity;
 		foreach (GameObject enemy in enemies) {
@@ -25,22 +42,10 @@ public class LightningBullet : JComponent, IShootable {
 			if (health && health.IsEnemy && isForward && dist < minDistSquared) {
 				minDistSquared = dist;
 				target = health;
-				targetPos = enemy.transform.position;
 			}
 		}
 
-		if (target) {
-			target.TakeDamage(_damage);
-		}
-
-		List<Vector3> path = pathBetween(pos, targetPos);
-		for (int i = 0; i < path.Count; ++i) {
-			Vector3 cur = path[i];
-			Vector3 next = (i + 1 < path.Count) ? path[i+1] : targetPos;
-			GameObject segment = Instantiate(_segmentPrefab);
-			scaleObjectBetween(segment.transform, cur, next);
-			segment.transform.SetParent(transform, true);
-		}
+		return target;
 	}
 
 	private List<Vector3> pathBetween(Vector3 start, Vector3 end) {
@@ -52,7 +57,8 @@ public class LightningBullet : JComponent, IShootable {
 			path.Add(start);
 			return path;
 		}
-		Vector3 mid = (start + end) / 2 + _segmentDeflectMaxRatio * len * VectorUtil.RandUnitVec3();
+		Vector3 deflection = _segmentDeflectMaxRatio * len / 2 * VectorUtil.RandUnitVec3();
+		Vector3 mid = (start + end) / 2 + deflection;
 		path = pathBetween(start, mid);
 		path.AddRange(pathBetween(mid, end));
 		return path;

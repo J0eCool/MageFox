@@ -16,3 +16,4 @@ MonoBehaviour:
   _numToFire: 24
   _randomSpread: 7
   _cooldown: 0.5
+  _autoFireRate: 0
