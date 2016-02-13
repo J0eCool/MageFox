@@ -477,7 +477,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _curve: {fileID: 11416578}
-  _timeToComplete: 7
+  _timeToComplete: 9
   _progressOnCurve: 0
 --- !u!114 &11472516
 MonoBehaviour:
@@ -507,7 +507,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _timeToComplete
-      value: 7
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 0}
       propertyPath: _max
