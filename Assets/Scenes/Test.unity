@@ -261,7 +261,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 424798, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}
       propertyPath: m_LocalPosition.x
-      value: -0.9
+      value: -4.3
       objectReference: {fileID: 0}
     - target: {fileID: 424798, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}
       propertyPath: m_LocalPosition.y
@@ -599,7 +599,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 424798, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.49
+      value: -4.68
       objectReference: {fileID: 0}
     - target: {fileID: 424798, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -628,6 +628,18 @@ Prefab:
     - target: {fileID: 128034, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}
       propertyPath: m_Name
       value: Tree (3)
+      objectReference: {fileID: 0}
+    - target: {fileID: 424798, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 3.3834314
+      objectReference: {fileID: 0}
+    - target: {fileID: 424798, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 4.229289
+      objectReference: {fileID: 0}
+    - target: {fileID: 424798, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 2.5375736
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}
@@ -908,7 +920,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 424798, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}
       propertyPath: m_LocalPosition.y
-      value: -4.49
+      value: -5.32
       objectReference: {fileID: 0}
     - target: {fileID: 424798, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}
       propertyPath: m_LocalPosition.z
@@ -937,6 +949,18 @@ Prefab:
     - target: {fileID: 128034, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}
       propertyPath: m_Name
       value: Tree (2)
+      objectReference: {fileID: 0}
+    - target: {fileID: 424798, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}
+      propertyPath: m_LocalScale.x
+      value: 2.9671257
+      objectReference: {fileID: 0}
+    - target: {fileID: 424798, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}
+      propertyPath: m_LocalScale.y
+      value: 3.7089071
+      objectReference: {fileID: 0}
+    - target: {fileID: 424798, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}
+      propertyPath: m_LocalScale.z
+      value: 2.2253442
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: f45c9a036f2b0f3409aa7fdd9ea8acc9, type: 2}

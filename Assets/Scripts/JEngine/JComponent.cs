@@ -48,6 +48,10 @@ public class JComponent : MonoBehaviour {
 		foreach (FieldInfo field in getPrivateFields()) {
 			if (isFieldAnnotated<StartComponentAttribute>(field)) {
 				field.SetValue(this, GetComponent(field.FieldType));
+			} else if (isFieldAnnotated<StartParentComponentAttribute>(field)) {
+				field.SetValue(this, transform.parent.GetComponent(field.FieldType));
+			} else if (isFieldAnnotated<StartChildComponentAttribute>(field)) {
+				field.SetValue(this, GetComponentInChildren(field.FieldType));
 			}
 		}
 	}
@@ -62,5 +66,10 @@ public class JComponent : MonoBehaviour {
 }
 
 [AttributeUsage(AttributeTargets.Field)]
-public class StartComponentAttribute : Attribute {
-}
+public class StartComponentAttribute : Attribute { }
+
+[AttributeUsage(AttributeTargets.Field)]
+public class StartParentComponentAttribute : Attribute { }
+
+[AttributeUsage(AttributeTargets.Field)]
+public class StartChildComponentAttribute : Attribute { }

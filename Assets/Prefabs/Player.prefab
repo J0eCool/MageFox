@@ -62,6 +62,7 @@ GameObject:
   - 65: {fileID: 6536780}
   - 136: {fileID: 13602462}
   - 114: {fileID: 11409898}
+  - 114: {fileID: 11423474}
   m_Layer: 8
   m_Name: Ship
   m_TagString: Untagged
@@ -195,9 +196,9 @@ Rigidbody:
   m_Drag: 0
   m_AngularDrag: 0.05
   m_UseGravity: 0
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 126
   m_CollisionDetection: 0
 --- !u!65 &6536780
 BoxCollider:
@@ -224,7 +225,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _moveSpeed: 18
   _moveAccelTime: 0.225
-  _bounds: {x: 17, y: 10}
+  _bounds: {x: 16, y: 9}
   _lookAheadDist: 40
   _drawGizmos: 0
 --- !u!114 &11409898
@@ -245,6 +246,17 @@ MonoBehaviour:
   _damageFlashDuration: 0.5
   _damageFlashInterval: 0.07
   _invinciblityDuration: 0.5
+--- !u!114 &11423474
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 151590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9f4d666fcaef709458013fcfdad03f9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &11472662
 MonoBehaviour:
   m_ObjectHideFlags: 1

@@ -9,6 +9,8 @@ public class ShipControl : JComponent {
 	[SerializeField] private float _lookAheadDist = 0.5f;
 	[SerializeField] private bool _drawGizmos = true;
 
+	[StartChildComponent] private Health _health;
+
 	private Vector3 _vel = Vector3.zero;
 	private Vector2 _origin = Vector3.zero;
 
@@ -43,5 +45,12 @@ public class ShipControl : JComponent {
 		pos += _vel * Time.fixedDeltaTime;
 		pos = VectorUtil.ClampXY(pos, _origin - _bounds/2, _origin + _bounds/2);
 		transform.position = pos;
+	}
+
+	public void DidCollide(Vector3 normal) {
+		normal.z = 0.0f;
+		normal.Normalize();
+		_vel = _moveSpeed * normal;
+		_health.TakeDamage(2);
 	}
 }
