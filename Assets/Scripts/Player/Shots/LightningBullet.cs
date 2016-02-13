@@ -6,6 +6,9 @@ public class LightningBullet : JComponent, IShootable {
 	[SerializeField] private int _damage = 5;
 	[SerializeField] private float _despawnDelay = 0.7f;
 	[SerializeField] private float _defaultDist = 5.0f;
+	[SerializeField] private GameObject _segmentPrefab;
+	[SerializeField] private float _segmentDeflectMaxRatio = 0.3f;
+	[SerializeField] private float _segmentMaxLength = 2.0f;
 
 	private float _timer = 0.0f;
 
@@ -30,13 +33,39 @@ public class LightningBullet : JComponent, IShootable {
 			target.TakeDamage(_damage);
 		}
 
-		Vector3 scale = transform.localScale;
+		List<Vector3> path = pathBetween(pos, targetPos);
+		for (int i = 0; i < path.Count; ++i) {
+			Vector3 cur = path[i];
+			Vector3 next = (i + 1 < path.Count) ? path[i+1] : targetPos;
+			GameObject segment = Instantiate(_segmentPrefab);
+			scaleObjectBetween(segment.transform, cur, next);
+			segment.transform.SetParent(transform, true);
+		}
+	}
+
+	private List<Vector3> pathBetween(Vector3 start, Vector3 end) {
+		List<Vector3> path;
+		Vector3 delta = end - start;
+		float len = delta.magnitude;
+		if (len <= _segmentMaxLength) {
+			path = new List<Vector3>();
+			path.Add(start);
+			return path;
+		}
+		Vector3 mid = (start + end) / 2 + _segmentDeflectMaxRatio * len * VectorUtil.RandUnitVec3();
+		path = pathBetween(start, mid);
+		path.AddRange(pathBetween(mid, end));
+		return path;
+	}
+
+	private static void scaleObjectBetween(Transform trans, Vector3 pos, Vector3 targetPos) {
+		Vector3 scale = trans.localScale;
 		Vector3 delta = targetPos - pos;
 		scale.z = delta.magnitude;
-		transform.localScale = scale;
+		trans.localScale = scale;
 
-		transform.position = (targetPos + pos) / 2;
-		transform.LookAt(targetPos);
+		trans.position = (targetPos + pos) / 2;
+		trans.LookAt(targetPos);
 	}
 
 	protected override void OnUpdate() {
