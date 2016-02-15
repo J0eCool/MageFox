@@ -85,7 +85,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 138418}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -1.6467391, y: -9.08349, z: 18.15}
+  m_LocalPosition: {x: 6.38, y: -9.08349, z: 140.04}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 407928}
@@ -195,8 +195,7 @@ MonoBehaviour:
   _jumpTime: 0.6
   _fallTime: 0.15
   _shootTime: 1.1
-  _jumpHeight: 11
-  _jumpForwardSpeed: 2
+  _jumpDist: {x: 0, y: 11, z: 2}
   _flyVel: {x: 7, y: 4, z: 30}
 --- !u!114 &11485044
 MonoBehaviour:

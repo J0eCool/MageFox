@@ -6,17 +6,16 @@ public class JumpFromGround : JComponent {
 	[SerializeField] private float _jumpTime = 1.5f;
 	[SerializeField] private float _fallTime = 0.5f;
 	[SerializeField] private float _shootTime = 1.0f;
-	[SerializeField] private float _jumpHeight = 10.0f;
-	[SerializeField] private float _jumpForwardSpeed = 2.0f;
+	[SerializeField] private Vector3 _jumpDist;
 	[SerializeField] private Vector3 _flyVel;
 
 	[StartComponent] private FireAtPlayer _fire;
 
 	private float _timer = 0.0f;
-	private float _startHeight;
+	private Vector3 _startPos;
 
 	protected override void OnStart() {
-		_startHeight = transform.position.y;
+		_startPos = transform.position;
 		_fire.enabled = false;
 	}
 
@@ -25,10 +24,7 @@ public class JumpFromGround : JComponent {
 		if (_timer < _jumpTime + _fallTime) {
 			float t = _timer / _jumpTime - 1.0f;
 			float pct = 1.0f - t * t;
-			float y = _startHeight + _jumpHeight * pct;
-			Vector3 pos = transform.position;
-			pos.y = y;
-			pos.z += Time.fixedDeltaTime * _jumpForwardSpeed;
+			Vector3 pos = _startPos + _jumpDist * pct;
 			transform.LookAt(pos);
 			transform.position = pos;
 		} else if (_timer < _jumpTime + _fallTime + _shootTime) {
