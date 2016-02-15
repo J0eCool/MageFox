@@ -81,4 +81,8 @@ public class Health : LimitedQuantity {
 			beginFlashing();
 		}
 	}
+
+	public void SetInvincibleFor(float duration) {
+		_invincibleUntil = Time.timeSinceLevelLoad + duration;
+	}
 }

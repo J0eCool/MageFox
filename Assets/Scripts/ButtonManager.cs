@@ -9,12 +9,14 @@ public class ButtonManager : SingletonComponent<ButtonManager> {
 	public readonly static string SpellButton1 = "Spell1";
 	public readonly static string SpellButton2 = "Spell2";
 	public readonly static string SpellButton3 = "Spell3";
+	public readonly static string DashButton = "Dash";
 	public readonly static string PauseButton = "Pause";
 	public readonly static string[] AxisNames = {
 		FireButton,
 		SpellButton1,
 		SpellButton2,
 		SpellButton3,
+		DashButton,
 		PauseButton,
 		"Horizontal",
 		"Vertical",
@@ -22,10 +24,11 @@ public class ButtonManager : SingletonComponent<ButtonManager> {
 
 	public readonly static string[] ButtonNames = {
 		FireButton,
-		PauseButton,
 		SpellButton1,
 		SpellButton2,
 		SpellButton3,
+		DashButton,
+		PauseButton,
 	};
 
 	private AxisMap _heldKeys = new AxisMap();
